@@ -1,0 +1,55 @@
+name: Apply landing page update
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-landing-update.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Update landing page
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text()
+
+          old_hero = ".hero{min-height:710px;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.82) 45%,rgba(0,0,0,.32) 100%),url('Copy of Copy of Copy of Copy of Before and After Image Youtube Thumbnail.png') center/cover no-repeat;border-bottom:1px solid var(--line)}"
+          new_hero = ".hero{min-height:710px;position:relative;display:flex;align-items:center;background:radial-gradient(circle at 82% 28%,rgba(207,36,50,.22),transparent 32%),linear-gradient(135deg,#050505 0%,#0d0d0d 55%,#171717 100%);border-bottom:1px solid var(--line)}"
+          if old_hero not in s:
+              raise SystemExit('Hero CSS target not found')
+          s = s.replace(old_hero, new_hero, 1)
+
+          css_anchor = ".calc-section{background:radial-gradient(circle at 80% 10%,rgba(207,36,50,.14),transparent 34%),#0b0b0b}"
+          proof_css = ".beforeafter{padding:44px 0 0;background:#050505}.beforeafter-card{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#111;box-shadow:0 24px 70px rgba(0,0,0,.35)}.beforeafter-card img{width:100%;height:auto;display:block}.beforeafter-label{position:absolute;left:18px;bottom:18px;background:rgba(5,5,5,.9);border:1px solid rgba(255,255,255,.12);padding:9px 13px;border-radius:6px;font:900 12px var(--cond);letter-spacing:.1em;text-transform:uppercase}.beforeafter-label span{color:var(--red)}\n    " + css_anchor
+          if css_anchor not in s:
+              raise SystemExit('Calculator CSS target not found')
+          s = s.replace(css_anchor, proof_css, 1)
+
+          marker = '<section class="section calc-section" id="calculator">'
+          proof = '<section class="beforeafter" aria-label="Ozarks Concrete Coatings before and after"><div class="wrap"><div class="beforeafter-card"><img src="Copy of Copy of Copy of Copy of Before and After Image Youtube Thumbnail.png" loading="eager" alt="Before and after garage floor transformation by Ozarks Concrete Coatings"><div class="beforeafter-label">Real OCC Transformation • <span>Before → After</span></div></div></div></section>\n\n' + marker
+          if marker not in s:
+              raise SystemExit('Calculator section target not found')
+          s = s.replace(marker, proof, 1)
+
+          s = s.replace('<strong>179+</strong><span>Google Reviews</span>', '<strong>187</strong><span>5-Star Google Reviews</span>')
+          s = s.replace('5.0 GOOGLE RATING • 179+ REVIEWS', '5.0 GOOGLE RATING • 187 FIVE-STAR REVIEWS')
+
+          p.write_text(s)
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Move before-after above calculator and refresh hero"
+          git push origin main
