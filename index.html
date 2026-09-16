@@ -34,6 +34,16 @@
     .hero{min-height:640px;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.80) 46%,rgba(0,0,0,.38) 100%),url('epoxy-garage-floor-springfield-mo-3.jpg') center 62%/cover no-repeat;border-bottom:1px solid var(--line)}.hero:after{content:"";position:absolute;inset:auto 0 0;height:130px;background:linear-gradient(transparent,var(--bg))}.hero .wrap{position:relative;z-index:2}.hero .eyebrow{color:var(--red);margin-bottom:20px;display:block;text-shadow:0 2px 8px rgba(0,0,0,.7)}.hero-copy{max-width:710px;padding:64px 0 86px}.hero-rating{display:inline-flex;align-items:center;gap:9px;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 14px 7px 12px;margin-bottom:20px}.hero-rating .stars{color:#f9c74f;font-size:13px;letter-spacing:1px}.hero-rating span{font:800 12px var(--cond);letter-spacing:.06em;text-transform:uppercase;color:#eee}.hero-rating b{color:#fff}.hero h1{font:400 clamp(52px,7.4vw,96px)/.85 var(--display);margin:0 0 16px;max-width:800px}.hero h1 span{color:var(--red)}.hero-sub{font-size:clamp(17px,2vw,21px);font-weight:500;color:#e2e2e2;max-width:660px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}.micro{font:700 13px var(--cond);color:#aaa;text-transform:uppercase;letter-spacing:.07em}.proofline{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px}.proofline span{font:800 13px var(--cond);text-transform:uppercase;letter-spacing:.08em}.proofline b{color:var(--green);margin-right:6px}
     .trust{background:#050505;border-block:1px solid var(--line)}.trustgrid{display:grid;grid-template-columns:repeat(5,1fr)}.trustitem{text-align:center;padding:23px 12px;border-right:1px solid var(--line)}.trustitem:last-child{border:0}.trustitem strong{display:block;font:400 27px/1 var(--display);color:#fff}.trustitem span{display:block;margin-top:5px;font:800 11px var(--cond);text-transform:uppercase;letter-spacing:.1em;color:#888}
     .beforeafter{padding:56px 0 0;background:#050505}.beforeafter-eyebrow{display:block;text-align:center;margin-bottom:14px}.beforeafter-card{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#111;box-shadow:0 24px 70px rgba(0,0,0,.35)}.beforeafter-card img{width:100%;height:auto;display:block}.beforeafter-label{position:absolute;left:18px;bottom:18px;background:rgba(5,5,5,.9);border:1px solid rgba(255,255,255,.12);padding:9px 13px;border-radius:6px;font:900 12px var(--cond);letter-spacing:.1em;text-transform:uppercase}.beforeafter-label span{color:var(--red)}
+    .videoproof{padding:64px 0;background:#070707;border-top:1px solid var(--line)}
+    .videoproof-grid{display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:46px;align-items:center}
+    .videoproof-player{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#000;box-shadow:0 24px 70px rgba(0,0,0,.45)}
+    .videoproof-player video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#000}
+    .videoproof-copy .title{margin:10px 0 14px}
+    .videoproof-points{list-style:none;display:grid;gap:9px;margin:20px 0 24px}
+    .videoproof-points li{font:800 13px var(--cond);letter-spacing:.06em;text-transform:uppercase;color:#ddd}
+    .videoproof-points li:before{content:'✓';color:var(--green);font-weight:900;margin-right:9px}
+    .videoproof-actions{display:flex;gap:10px;flex-wrap:wrap}
+    @media(max-width:900px){.videoproof{padding:52px 0}.videoproof-grid{grid-template-columns:1fr;gap:26px;max-width:400px;margin:0 auto}.videoproof-points{justify-items:center}.videoproof-actions{justify-content:center}}
     .viz-section{padding:78px 0 26px;background:radial-gradient(circle at 15% 10%,rgba(207,36,50,.14),transparent 30%),#070707;border-top:1px solid var(--line)}
     .viz-head{text-align:center;max-width:850px;margin:0 auto 28px}.viz-head .title{margin:10px 0 14px}.viz-head .lead{margin:0 auto}
     .viz-frame-wrap{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#070707;box-shadow:0 28px 90px rgba(0,0,0,.38)}
@@ -133,6 +143,24 @@
 </div></section>
 
 <section class="beforeafter" aria-label="Ozarks Concrete Coatings before and after"><div class="wrap"><div class="beforeafter-eyebrow eyebrow">Real Results, Not Renderings</div><div class="beforeafter-card"><img src="before-after-transformation.webp" loading="eager" alt="Before and after garage floor transformation by Ozarks Concrete Coatings"><div class="beforeafter-label">Real OCC Transformation • <span>Before → After</span></div></div></div></section>
+
+<section class="videoproof" aria-label="Ozarks Concrete Coatings video"><div class="wrap videoproof-grid">
+  <div class="videoproof-player">
+    <video controls preload="none" playsinline poster="video-poster.jpg" src="LandingpageVideo1.mp4" title="Ozarks Concrete Coatings floor coating video"></video>
+  </div>
+  <div class="videoproof-copy">
+    <div class="eyebrow">30 Seconds With OCC</div>
+    <h2 class="title">PRESS PLAY. THEN <span class="red">PRICE YOUR FLOOR.</span></h2>
+    <p class="lead">Photos are easy to stage. Watch how an Ozarks Concrete Coatings floor actually comes together — then take about the same thirty seconds to get your own ballpark number.</p>
+    <ul class="videoproof-points">
+      <li>Mechanical diamond-ground prep</li>
+      <li>Full broadcast flake</li>
+      <li>UV-stable polyaspartic topcoat</li>
+      <li>Most floors done in one day</li>
+    </ul>
+    <div class="videoproof-actions"><a href="#calculator" class="btn btn-red btn-big">Get My Instant Price →</a><a href="tel:4174026821" class="btn btn-dark btn-big">Call 417.402.6821</a></div>
+  </div>
+</div></section>
 
 <section class="viz-section" id="floor-visualizer"><div class="wrap">
       <div class="viz-head"><div class="eyebrow">See It Before We Install It</div><h2 class="title">TRY YOUR FAVORITE <span class="red">FLAKE COLORS.</span></h2><p class="lead">Use the same OCC Floor Visualizer from our main website. Try our real flake colors on a garage floor — or upload a photo of your own — then jump straight into your instant price.</p></div>
